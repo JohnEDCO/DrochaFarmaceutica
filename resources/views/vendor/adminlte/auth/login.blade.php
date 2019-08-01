@@ -12,7 +12,7 @@
         .bg {
             /* The image used */
             /*background-image: url("img/imagenNatural3.jpg");*/
-            background-image: url("img/backgoundNormative1.png");
+            background-image: url("img/fondoVirus.png");
 
             /* Full height */
             height: 100%;
@@ -29,7 +29,7 @@
     <div id="app">
         <div class="login-box">
             <div class="login-logo">
-                <h1 class="label label-success"><b>Up</b>NE</h1>
+                <h1 class="label label-danger"><b>D'rocha </b>S.A</h1>
             </div><!-- /.login-logo -->
 
         @if (count($errors) > 0)
@@ -64,14 +64,13 @@
                     </div>
                 </div><!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-success btn-block btn-flat">Iniciar</button>
+                    <button type="submit" class="btn btn-danger btn-block btn-flat">Iniciar</button>
                 </div><!-- /.col -->
             </div>
         </form>
 
 
         <a href="{{ url('/password/reset') }}">He olvidado mi contraseña</a><br>
-        <a href="{{ url('/register') }}" class="text-center">Registrame</a>
 
     </div><!-- /.login-box-body -->
 

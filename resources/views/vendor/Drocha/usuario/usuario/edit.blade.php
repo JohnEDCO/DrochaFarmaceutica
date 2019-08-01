@@ -6,13 +6,13 @@
 
 @section('main-content')
 
-    <div class="panel panel-default">
+  <!--  <div class="panel panel-default">
         <div class="panel-body">
             <a href="{{route('user.index')}}" class="btn btn-default">
                 Volver
             </a>
         </div>
-    </div>
+    </div>-->
 
     <div class="panel panel-default">
         <div class="panel-heading">Editar usuario</div>
@@ -36,8 +36,8 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('ID_rol','Rol de usuario') !!}
-                    {!! Form::select('ID_rol',$roles,$user->ID_rol,['class' => 'form-control select-rol', 'placeholder' => 'seleccione una opción', 'required']) !!}
+                    {!! Form::label('id_rol','Rol de usuario') !!}
+                    {!! Form::select('id_rol',$roles,$user->id_rol,['class' => 'form-control select-rol', 'placeholder' => 'seleccione una opción', 'required']) !!}
                 </div>
 
                 <div class="form-group">
@@ -49,7 +49,11 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::submit('Actualizar',['class' => 'btn btn-primary'])!!}
+                    {!! Form::submit('Actualizar',['class' => 'btn btn-primary pull-right'])!!}
+
+                    <a href="{{route('user.index')}}" class="btn btn-default ">
+                          Volver
+                    </a>
                 </div>
 
                 {!! Form::close() !!}

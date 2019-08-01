@@ -30,7 +30,7 @@ desired effect
 |---------------------------------------------------------|
 -->
 
-<body class="skin-yellow sidebar-mini">
+<body class="skin-red sidebar-mini">
 
     <div class="loader"></div>
 
@@ -70,6 +70,8 @@ desired effect
 
 <!-- Usamos la libreria chosen, para dar estilo a las listas depegables -->
 <script src="{{asset('plugins/chosen/chosen.jquery.js')}}"></script>
+<!-- Usamos la libreria trumbowyg para dar estilo y agregar funciones a los text area -->
+<script src="{{asset('plugins/trumbowyg/trumbowyg.js')}}"></script>
 
 {{-- Script para desaparecer el loader --}}
 <script>
@@ -78,6 +80,9 @@ desired effect
     });
 
 </script>
+
     @yield('js')
+
+
 </body>
 </html>

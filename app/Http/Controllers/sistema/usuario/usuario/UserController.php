@@ -72,7 +72,7 @@ class UserController extends Controller
 
         $user = User::find($id);
 
-        return view('vendor.foods-online.sistema.usuario.usuario.edit')->with('roles', $roles)
+        return view('vendor.Drocha.usuario.usuario.edit')->with('roles', $roles)
             ->with('user', $user);
     }
 

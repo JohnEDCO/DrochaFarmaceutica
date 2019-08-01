@@ -25,7 +25,7 @@
             @if(count($usuarios)>0)
                 <table class="table table-stripped">
                     <thead>
-                    <th>ID</th>
+                    <th>Id</th>
                     <th>Nombre</th>
                     <th>Email</th>
                     <th>Rol</th>
