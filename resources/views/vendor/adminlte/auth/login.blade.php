@@ -71,6 +71,7 @@
 
 
         <a href="{{ url('/password/reset') }}">He olvidado mi contraseña</a><br>
+        <a href="{{ url('/register') }}" class="text-center">Registrame</a>
 
     </div><!-- /.login-box-body -->
 
