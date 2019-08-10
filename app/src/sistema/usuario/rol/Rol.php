@@ -13,7 +13,10 @@ class Rol extends Model
     {
         return $this->hasOne('App\User');
     }
-
+     public function Objetivos()
+    {
+        return $this->hasMany('App\src\objetivos\objetivo\Objetivo');
+    }
     public function scopeSearch($query,$buscar)
     {
         return $query->where('nombre','LIKE',"%$buscar%");

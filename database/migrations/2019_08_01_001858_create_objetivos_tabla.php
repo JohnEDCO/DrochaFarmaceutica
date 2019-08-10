@@ -24,7 +24,20 @@ class CreateObjetivosTabla extends Migration
             $table->timestamps();
 
             $table->foreign('id_rol')->references('id')->on('roles');
+
         });
+
+        Schema::create('user_objetivo', function(Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('objetivo_id')->unsigned();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('objetivo_id')->references('id')->on('objetivos');
+
+            $table->timestamps();
+
+        });              
     }
 
     /**

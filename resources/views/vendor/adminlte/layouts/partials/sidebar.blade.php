@@ -51,7 +51,7 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-book '></i> <span>Sectores</span> <i class="fa fa-angle-left pull-left"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Financiero</a></li>
+                    <li><a href="{{ route('objetivo.create')}}">Financiero</a></li>
                     <li><a href="#">Servicio al cliente</a></li>
                     <li><a href="#">Gestion humana</a></li>
                     <li><a href="#">Innovacion y desarrollo</a></li>

@@ -73,6 +73,25 @@ Route::group(['middleware' => 'auth'], function () {
 
     /**------------------------------------------------------------------------------------------**/
 
+    /** ------------------------------------- OBJETIVOS ----------------------------------------- */
+    /**
+     * Rutas definidas para el manejo de los objetivos de  la empresa
+     */
+    Route::get('objetivo', [
+        'uses' => 'sistema\objetivos\ObjetivoController@index',
+        'as' => 'objetivo.index_objetivos'
+    ]);
+
+     Route::get('objetivo/create', [
+        'uses' => 'sistema\objetivos\ObjetivoController@create',
+        'as' => 'objetivo.create'
+    ]);
+
+     Route::post('objetivo', [
+        'uses' => 'sistema\objetivos\ObjetivoController@store',
+        'as' => 'objetivo.store'
+    ]);     
+    /**------------------------------------------------------------------------------------------**/
 });
 
 

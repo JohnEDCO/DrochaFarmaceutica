@@ -44,6 +44,11 @@
                         <input type="password" class="form-control" placeholder="{{ trans('adminlte_lang::message.retrypepassword') }}" name="password_confirmation"/>
                         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                     </div>
+                    <div class="form-group has-feedback">
+                        <input type="id" class="form-control" placeholder="{{ trans('id del rol') }}" name="id_rol"/>
+                        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                    </div>
+
                     <div class="row">
                         <div class="col-xs-1">
                             <label>
