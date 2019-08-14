@@ -90,7 +90,22 @@ Route::group(['middleware' => 'auth'], function () {
      Route::post('objetivo', [
         'uses' => 'sistema\objetivos\ObjetivoController@store',
         'as' => 'objetivo.store'
-    ]);     
+    ]);  
+
+    Route::put('objetivo/{objetivo}', [
+        'uses' => 'sistema\objetivos\ObjetivoController@update',
+        'as' => 'objetivo.update'
+    ]);  
+
+    Route::get('objetivo{objetivo}/edit', [
+        'uses' => 'sistema\objetivos\ObjetivoController@edit',
+        'as' => 'objetivo.edit'
+    ]);
+
+    Route::get('financiero', [
+        'uses' => 'sistema\objetivos\ObjetivoController@indexF',
+        'as' => 'financiero.index'
+    ]);        
     /**------------------------------------------------------------------------------------------**/
 });
 

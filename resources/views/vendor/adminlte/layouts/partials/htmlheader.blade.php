@@ -1,5 +1,7 @@
 <head>
     <meta charset="UTF-8">
+    <!--para input dinamicos-->
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <title> @yield('htmlheader_title', 'Nada') </title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- CSRF Token -->

@@ -33,7 +33,7 @@
   </div>
 
   <div class="col-sm-4"> 
-    <img class="img-responsive" src="img\visionEstrategia.png" width="350", height="350"></img>
+    <img class="img-responsive" src="img\visionEstrategia.png" width="300", height="350"></img>
 
   </div>
 

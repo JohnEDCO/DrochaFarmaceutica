@@ -1,6 +1,6 @@
 <?php
 
-namespace AppApp\src\objetivos\iniciativa;
+namespace App\src\objetivos\iniciativa;
 
 use Illuminate\Database\Eloquent\Model;
 

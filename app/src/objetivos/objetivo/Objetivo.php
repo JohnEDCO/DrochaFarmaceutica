@@ -11,19 +11,19 @@ class Objetivo extends Model
 
      public function Indicadores()
     {
-        return $this->hasMany('App\src\objetivos\indicador\Indicador');
+        return $this->hasMany('App\src\objetivos\indicador\Indicador','id_objetivo','id');
     }
      public function Metas()
     {
-        return $this->hasMany('App\src\objetivos\meta\Meta');
+        return $this->hasMany('App\src\objetivos\meta\Meta','id_objetivo','id');
     }
      public function Iniciativas()
     {
-        return $this->hasMany('App\src\objetivos\iniciativa\Iniciativa');
+        return $this->hasMany('App\src\objetivos\iniciativa\Iniciativa','id_objetivo','id');
     }
      public function Rol()
     {
-        return $this->hasOne('App\src\sistema\usuario\rol\Rol');
+        return $this->hasOne('App\src\sistema\usuario\rol\Rol','id','id_rol');
     }
 
     public function scopeSearch($query,$buscar)
