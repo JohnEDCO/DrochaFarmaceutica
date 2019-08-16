@@ -13,6 +13,7 @@
         <div class="panel-heading">Crear usuario</div>
         <div class="panel-body">
             <div class="form-group">
+                
                 {!! Form::open(['route' => 'user.store', 'method' => 'POST']) !!}
 
                 <div class="form-group">

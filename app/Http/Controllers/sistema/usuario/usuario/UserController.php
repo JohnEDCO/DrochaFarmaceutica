@@ -46,6 +46,21 @@ class UserController extends Controller
         $user->save();
         flash('Se ha creado el usuario correctamente', 'success');
         return redirect()->route('user.index');
+        /*
+      $user = new User([
+            'name'=> $request->name,
+            'email'=>$request->email,
+            'password' => bcrypt($request->password)
+        ]);
+
+        $user->save();
+
+        $$libro = new Libro([
+            'nombre'=> $request->nombre_libro,
+            'fecha'=>$request->fehca_libro
+        ]);
+        */
+
     }
 
     /**
