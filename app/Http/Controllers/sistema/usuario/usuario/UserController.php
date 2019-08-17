@@ -44,7 +44,7 @@ class UserController extends Controller
         $user = new User($request->all());
         $user->password = bcrypt($request->password);
         $user->save();
-        flash('Se ha creado el usuario correctamente', 'success');
+        flash('Se ha creado el usuario correctamente')->success()->important();
         return redirect()->route('user.index');
         /*
       $user = new User([
@@ -128,7 +128,7 @@ class UserController extends Controller
 
 
         $user->save();
-        flash('Se ha actualizado el usuario correctamente', 'success');
+        flash('Se ha actualizado el usuario correctamente', 'success')->important();
         return redirect()->route('user.index');
     }
 
@@ -143,7 +143,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->habilitado = 0;
         $user->save();
-        flash('Usuario eliminado correctamente', 'danger');
+        flash('Usuario eliminado correctamente', 'danger')->important();
         return redirect()->route('user.index');
     }
 
@@ -186,7 +186,7 @@ class UserController extends Controller
         }
 
         $user->save();
-        flash('Se ha actualizado el usuario correctamente', 'success');
+        flash('Se ha actualizado el usuario correctamente', 'success')->important();
         return redirect()->route('user.perfil');
     }
 }

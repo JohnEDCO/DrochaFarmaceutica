@@ -25,8 +25,9 @@
                     <div class="panel-body">
             
                         <div class="form-group">
-                        {!! Form::label('nombre','Nombre') !!}
-                        {!! Form::text('nombre',$objetivo->nombre,['class' => 'form-control', 'placeholder' => 'Nombre objetivo', 'required']) !!}
+                        {!! Form::label('nombreObjetivo','Nombre') !!}
+                        {!! Form::text('nombreObjetivo',$objetivo->nombre,['class' => 'form-control', 'placeholder' => 'Nombre objetivo', 'required']) !!}
+                        {!! Form::hidden('nombreObjetivoH',$objetivo->id) !!}
                          </div>
                   
                     </div>
@@ -40,13 +41,14 @@
                              @foreach($objetivo->Indicadores As $indicador)
                                 <div class="col-sm-10" id="remInputIndicador">
                                     <br/>
-                                    {!! Form::text('nombre',$indicador->nombre,['class' => 'form-control', 'placeholder' => 'Nombre del usuario', 'required']) !!}
+                                    {!! Form::text('nombreIndicadorY[]',$indicador->nombre,['class' => 'form-control', 'placeholder' => 'Nombre del usuario', 'required']) !!}
+                                    {!! Form::hidden('nombreIndicadorH[]',$indicador->id) !!}
                                 </div>
                                 
 
-                                <div class="col-sm-2" id="remInputBIndicador"><br/>
+                                <div class="col-sm-2" ><br/>
 
-                                <a class="btn btn-danger remInputIndicador" onclick=" return confirm('Desea eliminar este usuario?')" size="20" href=" {{route('financiero.index')}}" id="contador1">
+                                <a href="{{route('indicador.destroy',[$indicador->id, $indicador->id_objetivo])}}" onclick=" return confirm('Desea eliminar este usuario?')" class="btn btn-danger" size="20"  >
                                     <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                                     Remover
                                 </a></div>
@@ -78,15 +80,16 @@
 
                              @foreach($objetivo->Metas As $meta)
 
-                                <div class="col-sm-10" id="remInputMeta">
+                                <div class="col-sm-10" >
                                     <br/>
-                                    {!! Form::text('nombre',$meta->nombre,['class' => 'form-control', 'placeholder' => 'Nombre del usuario', 'required']) !!}
+                                    {!! Form::text('nombreMetaY[]',$meta->nombre,['class' => 'form-control', 'placeholder' => 'Nombre del usuario', 'required']) !!}
+                                    {!! Form::hidden('nombreMetaH[]',$meta->id) !!}
                                 </div>
                                 
 
-                                <div class="col-sm-2" id="remInputBMeta"><br/>
+                                <div class="col-sm-2" ><br/>
 
-                                <a class="btn btn-danger remInputMeta" size="20" href="javascript:void(0)" id="contador1">
+                                <a href="#" onclick=" return confirm('Desea eliminar este usuario?')" class="btn btn-danger" size="20"  >
                                     <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                                     Remover
                                 </a></div>
@@ -118,14 +121,15 @@
                             <div class="row"> 
 
                              @foreach($objetivo->Iniciativas As $iniciativa)
-                                <div class="col-sm-10" id="remInputIniciativa">
+                                <div class="col-sm-10" >
                                     <br/>
-                                    {!! Form::text('nombre',$iniciativa->nombre,['class' => 'form-control', 'placeholder' => 'Nombre del usuario', 'required']) !!}
+                                    {!! Form::text('nombreIniciativaY[]',$iniciativa->nombre,['class' => 'form-control', 'placeholder' => 'Nombre del usuario', 'required']) !!}
+                                    {!! Form::hidden('nombreIniciativaH[]',$iniciativa->id) !!}
                                 </div>
                                 
-                                <div class="col-sm-2" id="remInputBIniciativa"><br/>
+                                <div class="col-sm-2" ><br/>
 
-                                <a class="btn btn-danger remInputIniciativa" size="20" href="javascript:void(0)" id="contador1">
+                                <a href="#" onclick=" return confirm('Desea eliminar este usuario?')" class="btn btn-danger" size="20"  >
                                     <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                                     Remover
                                 </a></div>
@@ -147,13 +151,10 @@
                     </a>
                      <!--Fin Adiccionar campo boton-->
                         </div>
-                      
 
               
                     </div>   
 
-               
-  
                 <div class="form-group">
                     {!! Form::submit('Actualizar',['class' => 'btn btn-primary pull-right'])!!}
 
@@ -233,8 +234,7 @@
                     $('#remInputIndicador'+id).remove();
                     $('#remInputBIndicador'+id).remove();
 
-                    $('#remInputIndicador').remove();
-                    $('#remInputBIndicador').remove();
+                   
                     //$(this).parents('div').remove();
                     //return false;
                 });
@@ -245,8 +245,7 @@
                     $('#remInputMeta'+id).remove();
                     $('#remInputBMeta'+id).remove();
 
-                    $('#remInputMeta').remove();
-                    $('#remInputBMeta').remove();                    //$(this).parents('div').remove();
+                //$(this).parents('div').remove();
                     //return false;
                 });
                 $(document).on('click', '.remInputIniciativa', function () {
@@ -256,8 +255,7 @@
                     $('#remInputIniciativa'+id).remove();
                     $('#remInputBIniciativa'+id).remove();
 
-                    $('#remInputIniciativa').remove();
-                    $('#remInputBIniciativa').remove();
+                    
                     //$(this).parents('div').remove();
                     //return false;
                 });
