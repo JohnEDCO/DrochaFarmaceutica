@@ -18,7 +18,7 @@
             </div>
         @endif
 
-        <!-- search form (Optional) -->
+        <!-- search form (Optional) el que aparece encima del home/nicio-->
         <!--<form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="{{ trans('adminlte_lang::message.search') }}..."/>
@@ -38,6 +38,14 @@
 
            <!-- <li><a href="{{ route('user.create') }}"><i class='fa fa-link'></i> 
             <span>Usuarios</span></a></li>-->
+            <li class="treeview">
+                <a href="#"><i class='fa fa-user'></i> <span>Roles</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('rol.create')}}">Crear nuevo</a></li>
+                    <li><a href="{{ route('rol.index')}}">Busqueda Roles</a></li>
+                 
+                </ul>
+            </li>
 
             <li class="treeview">
                 <a href="#"><i class='fa fa-user'></i> <span>Usuarios</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -51,11 +59,8 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-book '></i> <span>Sectores</span> <i class="fa fa-angle-left pull-left"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('objetivo.index_objetivos')}}">Vision y estrategia</a></li>
-                    <li><a href="{{ route('financiero.index')}}">Financiero</a></li>
-                    <li><a href="">Servicio al cliente</a></li>
-                    <li><a href="#">Gestion humana</a></li>
-                    <li><a href="#">Innovacion y desarrollo</a></li>
+                    <li><a href="{{ route('objetivo.bsc')}}">BSC</a></li>
+                    <li><a href="{{ route('objetivo.index')}}">Busqueda objetivos</a></li>
                 </ul>
             </li>
 

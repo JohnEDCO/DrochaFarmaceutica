@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\sistema\usuario\rol;
 
+use App\src\sistema\usuario\rol\Rol;
+
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class RolController extends Controller
 {
@@ -12,8 +16,8 @@ class RolController extends Controller
      */
     public function index(Request $request)
     {
-        $roles = Rol::orderBy('nombre','ASC')->paginate(10);
-        return view('vendor.Drocha.sistema.usuario.rol.index')->with('roles',$roles);
+        $roles = Rol::Search($request->buscar)->where('habilitado', 1)->orderBy('nombre', 'ASC')->paginate(10);
+        return view('vendor.Drocha.usuario.rol.index')->with('roles',$roles);
     }
 
     /**
@@ -21,7 +25,7 @@ class RolController extends Controller
      */
     public function create()
     {
-        return view('vendor.foods-online.sistema.usuario.rol.create');
+        return view('vendor.Drocha.usuario.rol.create');
     }
 
     /**
@@ -29,11 +33,11 @@ class RolController extends Controller
      * @param RolRequest $request
      * @return mixed
      */
-    public function store(RolRequest $request)
+    public function store(Request $request)
     {
         $rol = new Rol($request->all());
         $rol -> save();
-        flash('Se ha creado el rol correctamente','success');
+        flash('Se ha creado el rol correctamente','success')->important();
         return redirect()->route('rol.index');
     }
 
@@ -45,7 +49,7 @@ class RolController extends Controller
     public function edit($id)
     {
         $rol = Rol::find($id);
-        return view('vendor.foods-online.sistema.usuario.rol.edit')->with('rol',$rol);
+        return view('vendor.Drocha.usuario.rol.edit')->with('rol',$rol);
     }
 
     /**
@@ -54,7 +58,7 @@ class RolController extends Controller
      * @param $id
      * @return mixed
      */
-    public function update(RolRequest $request,$id)
+    public function update(Request $request,$id)
     {
         $rol = Rol::find($id);
         $rol -> fill($request->all());
@@ -66,7 +70,7 @@ class RolController extends Controller
         }
         
         $rol -> save();
-        flash('Se ha actualizado el rol correctamente','success');
+        flash('Se ha actualizado el rol correctamente','success')->important();
         return redirect()->route('rol.index');
     }
 
@@ -83,7 +87,7 @@ class RolController extends Controller
         //deshabilitado el rol en 0
         $rol -> habilitado = 0;
         $rol->save();
-        flash(strtoupper($rol->nombre).', Se ha eliminado correctamente','danger');
+        flash(strtoupper($rol->nombre).', Se ha eliminado correctamente','danger')->important();
         return redirect()->route('rol.index');
 
     	

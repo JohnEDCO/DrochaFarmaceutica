@@ -22,16 +22,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
-    
-	Route::post('user', [
-        'uses' => 'sistema\usuario\usuario\UserController@store',
-        'as' => 'user.store'
-    ]);
-
-    Route::put('user/{user}', [
-        'uses' => 'sistema\usuario\usuario\UserController@update',
-        'as' => 'user.update'
-    ]);
 
         /** Ruta para actualizar perfil propio*/
     Route::get('user/perfil', [
@@ -51,6 +41,16 @@ Route::group(['middleware' => 'auth'], function () {
      * Rutas definidas para el manejo de los usuarios del sistema
      */
 
+    Route::post('user', [
+        'uses' => 'sistema\usuario\usuario\UserController@store',
+        'as' => 'user.store'
+    ]);
+
+    Route::put('user/{user}', [
+        'uses' => 'sistema\usuario\usuario\UserController@update',
+        'as' => 'user.update'
+    ]);
+    
     Route::get('user', [
         'uses' => 'sistema\usuario\usuario\UserController@index',
         'as' => 'user.index'
@@ -72,14 +72,49 @@ Route::group(['middleware' => 'auth'], function () {
     ]);
 
     /**------------------------------------------------------------------------------------------**/
+    /** ------------------------------------- ROLES ----------------------------------------- */
+    /**
+     * Rutas definidas para el manejo de los ROLES del sistema
+     */
 
+    Route::get('rol', [
+        'uses' => 'sistema\usuario\rol\RolController@index',
+        'as' => 'rol.index'
+    ]);
+
+    Route::get('rol/create', [
+        'uses' => 'sistema\usuario\rol\RolController@create',
+        'as' => 'rol.create'
+    ]);
+
+    Route::get('rol/{rol}/edit', [
+        'uses' => 'sistema\usuario\rol\RolController@edit',
+        'as' => 'rol.edit'
+    ]);
+
+    Route::get('rol/{id}/destroy', [
+        'uses' => 'sistema\usuario\rol\RolController@destroy',
+        'as' => 'rol.destroy'
+    ]);
+
+    Route::put('rol/{rol}', [
+        'uses' => 'sistema\usuario\rol\RolController@update',
+        'as' => 'rol.update'
+    ]);
+
+    Route::post('rol', [
+        'uses' => 'sistema\usuario\rol\RolController@store',
+        'as' => 'rol.store'
+    ]);
+
+    /**------------------------------------------------------------------------------------------**/
     /** ------------------------------------- OBJETIVOS ----------------------------------------- */
     /**
      * Rutas definidas para el manejo de los objetivos de  la empresa
      */
-    Route::get('objetivo', [
-        'uses' => 'sistema\objetivos\ObjetivoController@index',
-        'as' => 'objetivo.index_objetivos'
+    Route::get('objetivo/BSC', [
+        'uses' => 'sistema\objetivos\ObjetivoController@indexBsc',
+        'as' => 'objetivo.bsc'
     ]);
 
      Route::get('objetivo/create', [
@@ -97,14 +132,34 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'objetivo.update'
     ]);  
 
-    Route::get('objetivo{objetivo}/edit', [
+    Route::get('objetivo/{objetivo}/edit', [
         'uses' => 'sistema\objetivos\ObjetivoController@edit',
         'as' => 'objetivo.edit'
     ]);
 
-    Route::get('financiero', [
-        'uses' => 'sistema\objetivos\ObjetivoController@indexF',
-        'as' => 'financiero.index'
+    Route::get('objetivo/{id}/destroy', [
+        'uses' => 'sistema\objetivos\ObjetivoController@destroy',
+        'as' => 'objetivo.destroy'
+    ]);
+
+    Route::get('indicador/{id}/{id_objetivo}/destroy', [
+        'uses' => 'sistema\objetivos\ObjetivoController@destroyI',
+        'as' => 'indicador.destroy'
+    ]);
+
+    Route::get('meta/{id}/{id_objetivo}/destroy', [
+        'uses' => 'sistema\objetivos\ObjetivoController@destroyM',
+        'as' => 'meta.destroy'
+    ]);
+
+    Route::get('iniciativa/{id}/{id_objetivo}/destroy', [
+        'uses' => 'sistema\objetivos\ObjetivoController@destroyIn',
+        'as' => 'iniciativa.destroy'
+    ]);
+
+    Route::get('objetivo', [
+        'uses' => 'sistema\objetivos\ObjetivoController@indexOb',
+        'as' => 'objetivo.index'
     ]);        
     /**------------------------------------------------------------------------------------------**/
 });
