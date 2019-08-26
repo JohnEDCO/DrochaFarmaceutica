@@ -13,7 +13,6 @@
             </a>
         </div>
     </div>-->
-
     <div class="panel panel-default">
         <div class="panel-heading">Editar rol</div>
         <div class="panel-body">
