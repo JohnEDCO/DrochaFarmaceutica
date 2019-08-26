@@ -6,7 +6,19 @@
 
 
 @section('main-content')
+ @if (count($errors)>0)
+        <div class="alert alert-danger" role="alert">
 
+       <ul>
+        @foreach($errors->all() as $error)
+
+            <li>{{ $error}}</li>
+
+        @endforeach
+        </ul>
+
+        </div>
+    @endif
     <div class="panel panel-default">
         <div class="panel-heading">Crear rol</div>
         <div class="panel-body">

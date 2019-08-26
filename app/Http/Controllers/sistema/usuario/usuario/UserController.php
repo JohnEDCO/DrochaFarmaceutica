@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\sistema\usuario\usuario;
 
-use App\Http\Requests\sistema\usuario\usuario\UserRequest;
 use App\src\sistema\usuario\rol\Rol;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\usuario\UserRequest;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -39,13 +39,14 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $user = new User($request->all());
         $user->password = bcrypt($request->password);
         $user->save();
         flash('Se ha creado el usuario correctamente')->success()->important();
         return redirect()->route('user.index');
+        
         /*
       $user = new User([
             'name'=> $request->name,

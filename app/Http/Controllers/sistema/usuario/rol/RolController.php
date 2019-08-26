@@ -5,6 +5,7 @@ namespace App\Http\Controllers\sistema\usuario\rol;
 use App\src\sistema\usuario\rol\Rol;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\rol\RolRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,7 +34,7 @@ class RolController extends Controller
      * @param RolRequest $request
      * @return mixed
      */
-    public function store(Request $request)
+    public function store(RolRequest $request)
     {
         $rol = new Rol($request->all());
         $rol -> save();
