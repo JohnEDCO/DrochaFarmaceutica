@@ -30,7 +30,7 @@ desired effect
 |---------------------------------------------------------|
 -->
 
-<body class="skin-red sidebar-mini">
+<body class="skin-purple sidebar-mini">
 
     <div class="loader"></div>
 
@@ -56,8 +56,6 @@ desired effect
             @yield('main-content')
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
-
-    @include('adminlte::layouts.partials.controlsidebar')
 
     @include('adminlte::layouts.partials.footer')
 

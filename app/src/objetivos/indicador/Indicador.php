@@ -1,6 +1,6 @@
 <?php
 
-namespace AppApp\src\objetivos\indicador;
+namespace App\src\objetivos\indicador;
 
 use Illuminate\Database\Eloquent\Model;
 

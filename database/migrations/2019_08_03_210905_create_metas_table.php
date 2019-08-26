@@ -19,7 +19,7 @@ class CreateMetasTable extends Migration
             $table->string('nombre');
             $table->timestamps();
 
-            $table->foreign('id_objetivo')->references('id')->on('objetivos');
+            $table->foreign('id_objetivo')->references('id')->on('objetivos')->onDelete('cascade');
         });
     }
 
