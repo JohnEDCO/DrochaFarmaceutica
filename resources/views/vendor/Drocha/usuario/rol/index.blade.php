@@ -1,21 +1,20 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-    Objetivos
+    Roles
 @endsection
 
 @section('main-content')
     <div class="panel panel-default">
-        <div class="panel-heading">Objetivos</div>
+        <div class="panel-heading">Roles</div>
         <div class="panel-body">
 
-            <a href="{{ route('objetivo.create') }}" class="btn btn-info">Registrar nuevo objetivo</a>
+            <a href="{{ route('rol.create') }}" class="btn btn-info">Registrar nuevo rol</a>
 
             <!-- BUSCADOR DE TAGS -->
-            {!! Form::open(['route' => 'financiero.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-            
+            {!! Form::open(['route' => 'rol.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
             <div class="input-group">
-                {!! Form::text('buscar',null, ['class' => 'form-control', 'placeholder' => 'busccar objetivo...', 'aria-describedby' => 'search']) !!}
+                {!! Form::text('buscar',null, ['class' => 'form-control', 'placeholder' => 'busccar rol...', 'aria-describedby' => 'search']) !!}
                 <span class="input-group-addon" id="search">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                 </span>
@@ -23,26 +22,25 @@
             {!! Form::close() !!}
                     <!-- FIN DEL BUSCADOR -->
 
-            @if(count($objetivos)>0)
+            @if(count($roles)>0)
                 <table class="table table-stripped">
                     <thead>
                     <th>Id</th>
                     <th>Nombre</th>
-                    <th>Rol</th>
-                    <th>Accion</th>
+                    <th>Habilitado</th>
                     </thead>
 
                     <tbody>
-                    @foreach($objetivos As $objetivo)
+                    @foreach($roles As $rol)
                         <tr>
-                            <td>{{$objetivo->id}}</td>
-                            <td>{{$objetivo->nombre}}</td>
-                            <td>{{$objetivo->rol->nombre}}</td>                            
+                            <td>{{$rol->id}}</td>
+                            <td>{{$rol->nombre}}</td>
+                            <td>{{$rol->habilitado}}</td>
                             <td>
-                                <a href="{{route('objetivo.edit',$objetivo->id)}}" class="btn btn-warning">
+                                <a href="{{route('rol.edit',$rol->id)}}" class="btn btn-warning">
                                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                 </a>
-                                <a href="{{route('objetivo.destroy',$objetivo->id)}}" onclick=" return confirm('Desea eliminar este usuario?')" class="btn btn-danger">
+                                <a href="{{route('rol.destroy',$rol->id)}}" onclick=" return confirm('Desea eliminar este usuario?')" class="btn btn-danger">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true">
                                 </span>
                                 </a>
@@ -58,7 +56,7 @@
                     No se han registrado roles
                 </p>
             @endif
-            {!! $objetivos->render() !!}
+            {!! $roles->render() !!}
         </div>
     </div>
 @endsection

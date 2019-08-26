@@ -1,14 +1,14 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-    Crear usuario
+    Crear objetivo
 @endsection
 
 
 @section('main-content')
 
  <div class="panel panel-default">
-        <div class="panel-heading">Crear usuario</div>
+        <div class="panel-heading">Crear objetivo</div>
         <div class="panel-body">
 
     <div class="form-group">
@@ -126,7 +126,7 @@
                 <div class="form-group">
                     {!! Form::submit('Registrar',['class' => 'btn btn-primary pull-right'])!!}
 
-                    <a href="{{route('objetivo.index_objetivos')}}" class="btn btn-default ">
+                    <a href="{{route('objetivo.bsc')}}" class="btn btn-default ">
                           Volver
                     </a>
                 </div>

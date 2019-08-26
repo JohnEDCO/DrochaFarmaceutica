@@ -7,8 +7,6 @@
 
 @section('main-content')
 
-
-
     <div class="panel panel-default">
         <div class="panel-heading">Crear usuario</div>
         <div class="panel-body">
