@@ -112,8 +112,8 @@ Route::group(['middleware' => 'auth'], function () {
     /**
      * Rutas definidas para el manejo de los objetivos de  la empresa
      */
-    Route::get('objetivo', [
-        'uses' => 'sistema\objetivos\ObjetivoController@index',
+    Route::get('objetivo/BSC', [
+        'uses' => 'sistema\objetivos\ObjetivoController@indexBsc',
         'as' => 'objetivo.bsc'
     ]);
 
@@ -157,9 +157,9 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'iniciativa.destroy'
     ]);
 
-    Route::get('financiero', [
-        'uses' => 'sistema\objetivos\ObjetivoController@indexF',
-        'as' => 'financiero.index'
+    Route::get('objetivo', [
+        'uses' => 'sistema\objetivos\ObjetivoController@indexOb',
+        'as' => 'objetivo.index'
     ]);        
     /**------------------------------------------------------------------------------------------**/
 });
