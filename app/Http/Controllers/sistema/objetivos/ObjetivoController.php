@@ -20,16 +20,31 @@ class ObjetivoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function indexBsc(Request $request)
     {   
-      
-        return view('vendor.Drocha.sectores.bsc');
+        $objetivosF = Objetivo::Search($request->buscar)->where('id_rol',2)->orderBy('nombre', 'ASC')->paginate(10);
+
+        $objetivosG = Objetivo::Search($request->buscar)->where('id_rol',3)->orderBy('nombre', 'ASC')->paginate(10);
+
+        $objetivosI = Objetivo::Search($request->buscar)->where('id_rol',4)->orderBy('nombre', 'ASC')->paginate(10);
+
+        $objetivosS = Objetivo::Search($request->buscar)->where('id_rol',5)->orderBy('nombre', 'ASC')->paginate(10);
+
+
+        return view('vendor.Drocha.sectores.bsc')->with('objetivosF', $objetivosF)->with('objetivosG', $objetivosG)->with('objetivosI', $objetivosI)->with('objetivosS', $objetivosS);
     }
 
-    public function indexF(Request $request)
+    public function indexOb(Request $request)
     {   
+        if((auth()->user()->id_rol)!=1){
         $objetivos = Objetivo::Search($request->buscar)->where('id_rol', auth()->user()->id_rol)->orderBy('nombre', 'ASC')->paginate(10);
-        return view('vendor.Drocha.sectores.financiero.index')->with('objetivos', $objetivos);
+        }
+        else{
+            $objetivos = Objetivo::Search($request->buscar)->orderBy('nombre', 'ASC')->paginate(10);
+        }
+        //dd(auth()->user()->Rol->nombre);
+
+        return view('vendor.Drocha.sectores.index')->with('objetivos', $objetivos);
     }
 
     /**
@@ -38,8 +53,8 @@ class ObjetivoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('vendor.Drocha.sectores.financiero.financiero');
+    {   
+        return view('vendor.Drocha.sectores.create');
     }
 
     /**
@@ -89,7 +104,7 @@ class ObjetivoController extends Controller
                 $iniciativa->save();
         }
         flash('Se ha creado el objetivo correctamente')->success()->important();
-        return redirect()->route('financiero.index');
+        return redirect()->route('objetivo.index');
         
     }
 
@@ -114,7 +129,7 @@ class ObjetivoController extends Controller
     {
         $objetivo = Objetivo::find($id);
       
-        return view('vendor.Drocha.sectores.financiero.edit')->with('objetivo', $objetivo);
+        return view('vendor.Drocha.sectores.edit')->with('objetivo', $objetivo);
     }
 
     /**
@@ -209,7 +224,8 @@ class ObjetivoController extends Controller
              $iniciativa->save();
         }
         }
-        return redirect()->route('financiero.index');
+        flash('Se ha modificado el objetivo correctamente')->success()->important();
+        return redirect()->route('objetivo.index');
     }
 
     /**
@@ -224,7 +240,7 @@ class ObjetivoController extends Controller
 
         $objetivo->delete();
         flash('Objetivo eliminado correctamente', 'danger')->important();
-        return redirect()->route('financiero.index');
+        return redirect()->route('objetivo.index');
     }
 
     /**
