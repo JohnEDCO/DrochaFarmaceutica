@@ -30,7 +30,7 @@ desired effect
 |---------------------------------------------------------|
 -->
 
-<body class="skin-red sidebar-mini">
+<body class="skin-purple sidebar-mini">
 
     <div class="loader"></div>
 

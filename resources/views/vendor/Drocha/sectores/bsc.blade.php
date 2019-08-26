@@ -16,7 +16,7 @@
         <div class="panel-body" style="color: white"> 
             <h5><b>FINANCIERO</b>
 
-              @if (strcasecmp(auth()->user()->Rol->nombre, 'Financiero') == 0 )
+              @if (strcasecmp(auth()->user()->Rol->nombre, 'Financiero') == 0 || strcasecmp(auth()->user()->Rol->nombre, 'Admin') == 0)
              <a href="{{route('objetivo.index')}}" class="btn btn-warning pull-right">Editar
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
             </a>@endif</h5>
@@ -82,7 +82,7 @@
 
         <div class="panel-body" style="color: white">
           <h5><b>CLIENTES</b>
-            @if (strcasecmp(auth()->user()->Rol->nombre, 'Servicio al cliente') == 0 )
+            @if (strcasecmp(auth()->user()->Rol->nombre, 'Servicio al cliente') == 0 || strcasecmp(auth()->user()->Rol->nombre, 'Admin') == 0)
              <a href="{{route('objetivo.index')}}" class="btn btn-warning pull-right">Editar
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
             </a>@endif</h5>
@@ -146,7 +146,7 @@
     <div  class="panel panel-default" style="background-color: #2e2a36">
         <div class="panel-body" style="color: white">
             <h5><b>PROCESOS INTERNOS DE LA EMPRESA</b>
-              @if (strcasecmp(auth()->user()->Rol->nombre, 'Innovacion y desarrollo') == 0 )
+              @if (strcasecmp(auth()->user()->Rol->nombre, 'Innovacion y desarrollo') == 0 || strcasecmp(auth()->user()->Rol->nombre, 'Admin') == 0)
              <a href="{{route('objetivo.index')}}" class="btn btn-warning pull-right">Editar
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
             </a>@endif</h5>
@@ -209,7 +209,7 @@
     <div class="panel panel-default" style="background-color: #2683e0">
         <div class="panel-body" style="color: white">
             <h5><b>APRENDIZAJE Y CRECIMIENTO</b> 
-              @if (strcasecmp(auth()->user()->Rol->nombre, 'Gestion humana') == 0 )
+              @if (strcasecmp(auth()->user()->Rol->nombre, 'Gestion humana') == 0 || strcasecmp(auth()->user()->Rol->nombre, 'Admin') == 0)
              <a href="{{route('objetivo.index')}}" class="btn btn-warning pull-right">Editar
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
             </a>@endif</h5>
