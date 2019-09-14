@@ -65,7 +65,7 @@
               </div>
             @else
                 <hr>
-                <p class="bg-warning text-center">
+                <p class="bg-default text-center">
                     No se han registrado objetivos
                 </p>
             @endif
@@ -129,7 +129,7 @@
               </div>
             @else
                 <hr>
-                <p class="bg-warning text-center">
+                <p class="bg-default text-center">
                     No se han registrado objetivos
                 </p>
             @endif

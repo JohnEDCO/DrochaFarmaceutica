@@ -35,7 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'user.perfil.actualizar'
     ]);
 
-    
+Route::group(['middleware' =>  'admin'], function () {
     /** ------------------------------------- USUARIOS ----------------------------------------- */
     /**
      * Rutas definidas para el manejo de los usuarios del sistema
@@ -106,7 +106,7 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'sistema\usuario\rol\RolController@store',
         'as' => 'rol.store'
     ]);
-
+});
     /**------------------------------------------------------------------------------------------**/
     /** ------------------------------------- OBJETIVOS ----------------------------------------- */
     /**

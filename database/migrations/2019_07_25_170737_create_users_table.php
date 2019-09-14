@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('habilitado')
                 ->default(1)
                 ->comment('[0]=>Deshabilitado [1]=>habilitado');
-
             $table->rememberToken();
             $table->timestamps();
 

@@ -38,6 +38,7 @@
 
            <!-- <li><a href="{{ route('user.create') }}"><i class='fa fa-link'></i> 
             <span>Usuarios</span></a></li>-->
+             @if (strcasecmp(auth()->user()->Rol->nombre, 'Admin') == 0)
             <li class="treeview">
                 <a href="#"><i class='fa fa-user'></i> <span>Roles</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
@@ -55,7 +56,7 @@
                  
                 </ul>
             </li>
-
+            @endif
             <li class="treeview">
                 <a href="#"><i class='fa fa-book '></i> <span>Sectores</span> <i class="fa fa-angle-left pull-left"></i></a>
                 <ul class="treeview-menu">

@@ -9,8 +9,11 @@
         <div class="panel-heading">Objetivos</div>
         <div class="panel-body">
 
+            @if(count($objetivos) < 10)
             <a href="{{ route('objetivo.create') }}" class="btn btn-info">Registrar nuevo objetivo</a>
-
+            @else
+                <a  onclick=" return confirm('EL limite de objetivos es 10')" class="btn btn-info">Registrar nuevo objetivo</a>
+            @endif
             <!-- BUSCADOR DE TAGS -->
             {!! Form::open(['route' => 'objetivo.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
             

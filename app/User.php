@@ -45,7 +45,7 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\src\sistema\usuario\rol\Rol','id','id_rol');
     }
-    
+
     public function scopeSearch($query,$buscar)
     {
         return $query->where('name','LIKE',"%$buscar%");

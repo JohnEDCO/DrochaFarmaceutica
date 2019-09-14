@@ -65,7 +65,7 @@ class ObjetivoController extends Controller
      */
     public function store(Request $request)
     {   
-        $objetivo =  new Objetivo([
+        $objetivo =  Objetivo::create([
                 'id_rol' => auth()->user()->id_rol,
                 'nombre' =>$request->nombreObjetivo,
         ]); 

@@ -29,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Rol::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
+        $roles = Rol::orderBy('nombre', 'ASC')->where('habilitado', 1)->pluck('nombre', 'id');
         return view('vendor.Drocha.usuario.usuario.create')->with('roles', $roles);
     }
 
